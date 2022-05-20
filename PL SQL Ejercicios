@@ -1,0 +1,42 @@
+CALCULADORA
+
+CREATE OR REPLACE PROCEDURE CALCULADORA (
+num1 IN NUMBER,
+num2 IN NUMBER,
+num3 IN NUMBER
+) IS
+resultado NUMBER(20) := 0;
+BEGIN
+CASE num3
+WHEN '1' THEN
+resultado := num1 + num2;
+DBMS_OUTPUT.PUT_LINE(num1||' + '||num2||' = '||resultado);
+WHEN '2' THEN
+resultado := num1 - num2;
+DBMS_OUTPUT.PUT_LINE(num1||' - '||num2||' = '||resultado);
+WHEN '3' THEN
+resultado := num1 * num2;
+DBMS_OUTPUT.PUT_LINE(num1||' * '||num2||' = '||resultado);
+WHEN '4' THEN
+resultado := num1 / num2;
+DBMS_OUTPUT.PUT_LINE(num1||' / '||num2||' = '||resultado);
+ELSE
+DBMS_OUTPUT.PUT_LINE('Operación inválida. La información introducida no es correcta.');
+END CASE;
+END CALCULADORA;
+
+
+
+
+FACTORIAL
+
+CREATE OR REPLACE FUNCTION factorial (valor NUMBER)
+RETURN NUMBER
+IS
+Val_retorno NUMBER := 1;
+BEGIN
+FOR f IN REVERSE 1..valor LOOP
+Val_retorno := Val_retorno*f;
+END LOOP;
+RETURN val_retorno;
+END;
