@@ -1,0 +1,30 @@
+CREATE OR REPLACE TRIGGER control_emp
+BEFORE INSERT OR DELETE
+ON EMPLEADOS
+FOR EACH ROW
+BEGIN
+IF DELETING THEN
+INSERT INTO auxiliar
+VALUES(TO_CHAR(sysdate,'DD/MM/YY*HH24:MI*') || :OLD.EMP_NO|| '*' ||
+:OLD.APELLIDO || '* BORRADO ');
+ELSIF INSERTING THEN
+INSERT INTO auxiliar
+VALUES(TO_CHAR(sysdate,'DD/MM/YY*HH24:MI*') || :NEW.EMP_NO || '*' ||
+:NEW.APELLIDO||'* INSERCION ');
+END IF;
+END;
+
+
+
+
+CREATE OR REPLACE TRIGGER fallo_modif
+BEFORE UPDATE OF apellido, emp_no, salario
+ON EMPLEADOS
+FOR EACH ROW
+BEGIN
+IF UPDATING('emp_no') OR UPDATING('apellido') OR (UPDATING ('salario') AND
+:new.salario>:old.salario*1.1)
+THEN
+RAISE_APPLICATION_ERROR (-20001,'Err. Modificación no permitida');
+END IF;
+END;
