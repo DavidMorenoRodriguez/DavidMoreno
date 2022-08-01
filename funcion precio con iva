@@ -1,0 +1,5 @@
+public class Funciones {
+
+static double getPriceIva(doublePrice) {
+return 100.99 + 21%;
+}
