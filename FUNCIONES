@@ -1,0 +1,52 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package com.example.funciones;
+
+public class Funciones {
+    public Funciones() {
+    }
+
+    static double getPrice() {
+        return 100.99D;
+    }
+
+    static void showMenu() {
+        System.out.println("Bienvenidos al E-commerce de zapatillas:");
+        System.out.println("1 - Ver zapatillas");
+        System.out.println("2 - Comprar zapatilla");
+        System.out.println("3 - Salir");
+    }
+
+    static String getMenu() {
+        System.out.println("Imprimiendo texto prueba");
+        return "Bienvenidos al E-commerce de zapatillas: \n 1 - Ver zapatillas....";
+    }
+
+    public static void main(String[] args) {
+        String menu = getMenu();
+        System.out.println(menu);
+        System.out.println(getMenu());
+        double price = getPrice();
+        System.out.println(price);
+        imprimirSaludoBuenosDias("OpenBootcamp");
+        String nombre = "Alan";
+        String apellido = "Sastre";
+        String saludo = obtenerSaludo(nombre, apellido);
+        System.out.println(saludo);
+        int resultadoSuma = suma(50, 200);
+    }
+
+    static int suma(int numero1, int numero2) {
+        return numero1 + numero2;
+    }
+
+    static String obtenerSaludo(String nombre, String apellido) {
+        return "Buenas tardes " + nombre + " " + apellido;
+    }
+
+    static void imprimirSaludoBuenosDias(String nombre) {
+        System.out.println("Buenas tardes " + nombre);
+    }
