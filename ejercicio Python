@@ -1,0 +1,33 @@
+## Creamos e inicializamos las variables
+nombre: str = 'Pepe'
+apellidos: str = 'Palotes'
+edad: int = 30
+email: str = 'email@email.es'
+telefono: int = 987456123
+casado: bool = False
+con_hijos: bool = False
+lista_de_amigos: list = ['Pepa', 'Carlos', 'María']
+peliculas_vistas = {
+    "clave": "El señor de los anillos",
+    "clave2": "Los vengadores",
+    "clave3": "Star Wars"
+}
+
+## Las mostramos por consola
+print(nombre)
+print(apellidos)
+print(edad)
+print(email)
+print(telefono)
+print(casado)
+print(con_hijos)
+print(lista_de_amigos)
+print(peliculas_vistas)
+
+
+
+
+peso = input("¿Cuál es tu peso en kg? ") ## Pedimos el peso al usuario
+estatura = input("¿Cuál es tu estatura en metros?") ## Pedimos la altura al usuario
+imc = round(float(peso)/float(estatura)**2,2) ## Calculamos el índice de masa corporal
+print("Tu índice de masa corporal es " + str(imc))
